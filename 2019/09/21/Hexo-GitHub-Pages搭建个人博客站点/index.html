@@ -229,7 +229,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-09-22 01:23:18'>2019-09-21 18:21</time>
+        创建时间:<time class="date" title='更新时间: 2019-09-22 01:31:11'>2019-09-21 18:21</time>
         
     </div>
     <div class="article-meta">
@@ -262,7 +262,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#使用GitHub-Pages-Hexo搭建个人博客站点"><span class="toc-text">使用GitHub Pages + Hexo搭建个人博客站点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境准备"><span class="toc-text">环境准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搭建步骤"><span class="toc-text">搭建步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Hexo"><span class="toc-text">安装Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化hexo"><span class="toc-text">初始化hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更换一个博客主题"><span class="toc-text">更换一个博客主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改-config-yml对博客进行基础配置"><span class="toc-text">修改_config.yml对博客进行基础配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#预览本地博客"><span class="toc-text">预览本地博客</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署博客到GitHub-Pages"><span class="toc-text">部署博客到GitHub Pages</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建GitHub账号"><span class="toc-text">创建GitHub账号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建git仓库"><span class="toc-text">创建git仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改-config-yml"><span class="toc-text">修改_config.yml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发布到GitHub-Pages"><span class="toc-text">发布到GitHub Pages</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#使用GitHub-Pages-Hexo搭建个人博客站点"><span class="toc-text">使用GitHub Pages + Hexo搭建个人博客站点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境准备"><span class="toc-text">环境准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搭建步骤"><span class="toc-text">搭建步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Hexo"><span class="toc-text">安装Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化hexo"><span class="toc-text">初始化hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更换一个博客主题"><span class="toc-text">更换一个博客主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改-config-yml对博客进行基础配置"><span class="toc-text">修改_config.yml对博客进行基础配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#预览本地博客"><span class="toc-text">预览本地博客</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署博客到GitHub-Pages"><span class="toc-text">部署博客到GitHub Pages</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建GitHub账号"><span class="toc-text">创建GitHub账号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建git仓库"><span class="toc-text">创建git仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改-config-yml"><span class="toc-text">修改_config.yml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发布到GitHub-Pages"><span class="toc-text">发布到GitHub Pages</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于md文件插入本地图片在GitHub-Pages无法显示的问题说明"><span class="toc-text">关于md文件插入本地图片在GitHub Pages无法显示的问题说明</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -279,13 +279,10 @@
       
         <h1 id="使用GitHub-Pages-Hexo搭建个人博客站点"><a href="#使用GitHub-Pages-Hexo搭建个人博客站点" class="headerlink" title="使用GitHub Pages + Hexo搭建个人博客站点"></a>使用GitHub Pages + Hexo搭建个人博客站点</h1><p>每个程序员都想把自己学习的过程和开发中遇到的问题记录下来，以便给后来人留下来一点东西参考。在市面上有很多已经成熟的写技术博客的网站，比如掘进、知乎、简书、开源中国、CSDN等,这些网站的特点就是，你不需要关心那么多，只需要在上面写文章即可，网站会帮你管理控制。但是，这些网站也有一些不好的地方，样式单一，不可控制，广告繁多。尤其是CSDN这个网站。广告是特别的多，且下载一些东西的时候，限制特别多。CSDN上现在管理也特别混乱，抄袭成篇，文章大多是小白写的，参考性不大。当然不是贬低小白，只是在陈述一种情况！所以，我没有选择在上述网站写自己的技术博客，于是自己就在github上通过GitHub Pages搭建自己的个人博客站点。现在讲搭建的博客一些步骤记录下来，希望能够对未来的你有所帮助，少趟一些坑。把更多的经历放在博客文章上面。也是自己博客的第一篇文章，如有不足，请多关照。</p>
 <h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ul>
-<li><p>Git</p>
-</li>
-<li><p>NodeJS</p>
-</li>
-<li><p><em>这里默认搭建已经全部安装好了上述环境，不会的自行百度!对于程序员而言，这些不难的！其次我本身使用的深度国产操作系统(国产Linux),其他操作系统操作步骤一样！略有差别*</em></p>
-</li>
+<li>Git</li>
+<li>NodeJS</li>
 </ul>
+<p><strong>这里默认搭建已经全部安装好了上述环境，不会的自行百度!对于程序员而言，这些不难的！其次我本身使用的深度国产操作系统(国产Linux),其他操作系统操作步骤一样！略有差别</strong></p>
 <h2 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h2><h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>打开shell终端，输入命令‘npm install -g hexo’，如果提示权限错误,请在命令前面添加sudo,如图所示:<br><img src="//huaxiapanda.github.io/2019/09/21/Hexo-GitHub-Pages搭建个人博客站点/one.png" alt="图1"></p>
 <h3 id="初始化hexo"><a href="#初始化hexo" class="headerlink" title="初始化hexo"></a>初始化hexo</h3><p>在你的电脑创建一个文件夹用来进行初始化博客,我们在这里创建的文件夹是Hexo,然后切换至Hexo文件夹，执行hexo初始化命令hexo init.<br><img src="//huaxiapanda.github.io/2019/09/21/Hexo-GitHub-Pages搭建个人博客站点/two.png" alt="图2"><br>初始化之后，hexo的目录结构如下所示<br><img src="//huaxiapanda.github.io/2019/09/21/Hexo-GitHub-Pages搭建个人博客站点/three.png" alt="图3"></p>
 <ul>
@@ -308,7 +305,9 @@
 <h3 id="修改-config-yml"><a href="#修改-config-yml" class="headerlink" title="修改_config.yml"></a>修改_config.yml</h3><p><img src="//huaxiapanda.github.io/2019/09/21/Hexo-GitHub-Pages搭建个人博客站点/eight.png" alt="图8"><br><strong>注意，冒号后面一定要有一个空格，否则编译报错</strong></p>
 <h3 id="发布到GitHub-Pages"><a href="#发布到GitHub-Pages" class="headerlink" title="发布到GitHub Pages"></a>发布到GitHub Pages</h3><p>首先安装自动部署工作，在shell窗口输入命令：</p>
 <pre><code>npm install hexo-deployer-git --save</code></pre><p>然后输入命令发布博客:</p>
-<pre><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code></pre><p>最后在浏览器输入username.github.io即可访问博客。<br>关于3-hexo主图的使用请参照<a href="https://yelog.org/2017/03/23/3-hexo-instruction/" target="_blank" rel="noopener">3-hexo使用说明</a><br> good luck</p>
+<pre><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code></pre><p>最后在浏览器输入username.github.io即可访问博客。<br>关于3-hexo主图的使用请参照<a href="https://yelog.org/2017/03/23/3-hexo-instruction/" target="_blank" rel="noopener">3-hexo使用说明</a></p>
+<h2 id="关于md文件插入本地图片在GitHub-Pages无法显示的问题说明"><a href="#关于md文件插入本地图片在GitHub-Pages无法显示的问题说明" class="headerlink" title="关于md文件插入本地图片在GitHub Pages无法显示的问题说明"></a>关于md文件插入本地图片在GitHub Pages无法显示的问题说明</h2><p> 由于hexo3版本后对很多插件支持有问题，hexo-asset-image插件在处理data.permalink链接时出现路径错误，把年月去掉了，导致最后生成的路径为%d/xxx/xxx需要对其做兼容处理。通过判断当前版本是否等于3的版本做不同的路径分割。因此，这里提供一个已经修复这个bug的插件</p>
+<pre><code>npm install https://github.com/7ym0n/hexo-asset-image --save</code></pre><p>之后重新编译发布即可。</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至huaxiapanda@163.com.文章所有权归华夏熊猫(huaxiapanda)所有 </span>
@@ -326,7 +325,7 @@
     
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="华夏熊猫">华夏熊猫</a></p>
     <p><span class="copy-title">发布时间:</span>2019-09-21, 18:21:50</p>
-    <p><span class="copy-title">最后更新:</span>2019-09-22, 01:23:18</p>
+    <p><span class="copy-title">最后更新:</span>2019-09-22, 01:31:11</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/09/21/Hexo-GitHub-Pages搭建个人博客站点/" title="Hexo+GitHub Pages搭建个人博客站点">https://huaxiapanda.github.io/2019/09/21/Hexo-GitHub-Pages搭建个人博客站点/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
