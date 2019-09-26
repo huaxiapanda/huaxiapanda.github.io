@@ -135,11 +135,11 @@
     
         
             
-            <li><div data-rel="运维"><i class="fold iconfont icon-right"></i>运维<small>(1)</small></div>
+            <li><div data-rel="工具"><i class="fold iconfont icon-right"></i>工具<small>(1)</small></div>
                 
                     <ul class="sub hide">
                         
-                        <li><div data-rel="docker">docker<small>(1)</small></div>
+                        <li><div data-rel="hexo">hexo<small>(1)</small></div>
                             
                         </li>
                             
@@ -151,11 +151,11 @@
     
         
             
-            <li><div data-rel="工具"><i class="fold iconfont icon-right"></i>工具<small>(1)</small></div>
+            <li><div data-rel="运维"><i class="fold iconfont icon-right"></i>运维<small>(1)</small></div>
                 
                     <ul class="sub hide">
                         
-                        <li><div data-rel="hexo">hexo<small>(1)</small></div>
+                        <li><div data-rel="docker">docker<small>(1)</small></div>
                             
                         </li>
                             
@@ -207,7 +207,7 @@
 </div>
         <div class="title-list">
     <form onkeydown="if(event.keyCode==13){return false;}">
-        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off"id="local-search-input" >
         <i class="cross"></i>
         <span>
             <label for="tagswitch">Tags:</label>
@@ -218,26 +218,22 @@
     <div class="tags-list">
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">Docker</a>
+        <a href="javascript:" class="color5">hexo</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">hexo</a>
+        <a href="javascript:" class="color2">Docker</a>
     </li>
     
     <div class="clearfix"></div>
 </div>
 
     
+    <div id="local-search-result">
+
+    </div>
+    
     <nav id="title-list-nav">
-        
-        <a  class="运维 docker "
-           href="/2019/09/24/Ubuntu Docker 安装/"
-           data-tag="Docker"
-           data-author="" >
-            <span class="post-title" title="Ubuntu Docker 安装">Ubuntu Docker 安装</span>
-            <span class="post-date" title="2019-09-24 19:21:23">2019/09/24</span>
-        </a>
         
         <a  class="工具 hexo "
            href="/2019/09/21/Hexo+GitHub Pages搭建个人博客站点/"
@@ -245,6 +241,14 @@
            data-author="" >
             <span class="post-title" title="Hexo+GitHub Pages搭建个人博客站点">Hexo+GitHub Pages搭建个人博客站点</span>
             <span class="post-date" title="2019-09-21 18:21:50">2019/09/21</span>
+        </a>
+        
+        <a  class="运维 docker "
+           href="/2019/09/24/Ubuntu Docker 安装/"
+           data-tag="Docker"
+           data-author="" >
+            <span class="post-title" title="Ubuntu Docker 安装">Ubuntu Docker 安装</span>
+            <span class="post-date" title="2019-09-24 19:21:23">2019/09/24</span>
         </a>
         
     </nav>
@@ -461,7 +465,7 @@ huaxiapanda@huaxiapanda:~$ sudo service docker status</code></pre>
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#Docker','#hexo',],
+            'data': ['#hexo','#Docker',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
