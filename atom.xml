@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://huaxiapanda.github.io/"/>
-  <updated>2019-09-26T15:26:40.955Z</updated>
+  <updated>2019-09-27T16:32:59.701Z</updated>
   <id>https://huaxiapanda.github.io/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Docker实战训练营</title>
+    <link href="https://huaxiapanda.github.io/2019/09/27/Docker%E5%AE%9E%E6%88%98%E8%AE%AD%E7%BB%83%E8%90%A5/"/>
+    <id>https://huaxiapanda.github.io/2019/09/27/Docker实战训练营/</id>
+    <published>2019-09-27T15:41:20.000Z</published>
+    <updated>2019-09-27T16:32:59.701Z</updated>
+    
+    <content type="html"><![CDATA[<p>@[toc]</p><h1 id="Docker实战训练营"><a href="#Docker实战训练营" class="headerlink" title="Docker实战训练营"></a>Docker实战训练营</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Docker实战训练营是我从工作中提炼的精华内容，也是我在这个博客的这一片正式博客，该篇博客不是一个简单的知识点，我准备写成一个系列，docker实战系列内容。包括docker入门与进阶，未来有可能还是出对应的视频讲解。敬请各位关注。希望大家能够在这边博客中真正的有所收获，并且提升自己。我华夏熊猫还是很乐意帮助大家的。有任何问题，请评论区留言。谢谢。</p><h1 id="Docker实战训练营大纲"><a href="#Docker实战训练营大纲" class="headerlink" title="Docker实战训练营大纲"></a>Docker实战训练营大纲</h1><table>  <tr>    <th width="33.3%">类别</th>    <th width="33.3%">章节</th>    <th width="33.3%">知识点</th>  </tr>  <tr>    <td rowspan="8">docker快速入门</td>    <td>认识docker</td>    <td>      <li>what is docker</li>      <li> why is docker</li>      <li>docker的优点</li>      <li>docker演示</li>    </td>  </tr>  <tr>  <td>docker安装与使用</td>  <td>    <li>下载docker</li>    <li>安装docker</li>    <li>名词解析</li>  </td>  </tr>  <tr>  <td>docker镜像的常用操作</td>  <td>    <li>获取镜像</li>    <li>查看镜像信息</li>    <li>查找镜像</li>    <li>删除镜像</li>    <li>创建镜像</li>    <li>迁出和载入镜像</li>    <li>上传镜像</li>  </td>  </tr>  <tr>  <td>docerk容器的常用操作 </td>  <td>    <li>创建容器</li>    <li>停止容器</li>    <li>进入容器</li>    <li>删除容器</li>    <li>导入和导出容器</li>  </td>  </tr>  <tr>  <td>docerk仓库</td>  <td>    <li>docker hub</li>    <li>创建仓库</li>    <li>使用仓库</li>    <li>仓库管理</li>  </td>  </tr>  <tr>  <td>docerk数据管理</td>  <td>    <li>数据卷</li>    <li>数据卷容器</li>    <li>利用数据卷迁移容器</li>  </td>  </tr>  <tr>  <td>docerk网络</td>  <td>    <li>容器同宿主通信</li>    <li>容器间相互通信</li>  </td>  </tr>  <tr>  <td>docerk之dockerfile</td>  <td>    <li>dockerfile指令集</li>    <li>dockerfile实战训练</li>    <li>利用dockerfile创建镜像</li>  </td>  </tr>  <tr>  <td rowspan="4">docker之持续集成</td>  <td>持续集成概念</td>  <td>    <li>持续集成是什么</li>    <li>为什么持续集成</li>    <li>持续集成与docker</li>  </td>  </tr>  <tr>  <td>git入门</td>  <td>    <li>git简介</li>    <li>git常用命令</li>    <li>git hook(钩子)的配置</li>  </td>  </tr>  <tr>  <td>jenkins入门</td>  <td>    <li>jenkins简介</li>    <li>jenkins的安装</li>    <li>jenkins的简单配置</li>  </td>  </tr>  <tr>  <td>使用docker完成持续集成</td>  <td>    <li>使用docker完成持续集成</li>  </td>  </tr>  <tr>  <td rowspan="4">docker之持续部署</td>  <td>docker compose</td>  <td>    <li>compose简介</li>    <li>compose安装</li>    <li>利用compose进行容器编排</li>  </td>  </tr>  <tr>  <td>docker machine</td>  <td>    <li>machine与虚拟机软件</li>    <li>machine与Iass平台</li>    <li>运行docker machine</li>  </td>  </tr>  <tr>  <td>docker swarm</td>  <td>    <li>swarm 简介</li>    <li>swarm 安装</li>    <li>swarm对请求处理</li>    <li>swarm集群的调度策略</li>    <li>swarm与machine</li>  </td>  </tr>  <tr>  <td>docker监控和日志管理</td>  <td>    <li>搭建监控报警系统</li>    <li>搭建日志管理系统</li>    <li>模拟访问系统</li>    <li>设置监控和报警策略</li>    <li>收集日志并展现</li>  </td>  </tr>  <tr>  <td rowspan="4">docker与大数据</td>  <td>docker集成HDFS</td>  <td>    <li>环境准备</li>    <li>HDFS安装</li>  </td>  </tr>  <tr>  <td>docker集成YARN</td>  <td>    <li>环境准备</li>    <li>YANR安装</li>  </td>  </tr>  <tr>  <td>docker集成Hive</td>  <td>    <li>环境准备</li>    <li>Hive安装</li>  </td>  </tr>  <tr>  <td>docker集成Zookeeper</td>  <td>    <li>环境准备</li>    <li>zookeeper安装</li>  </td>  </tr></table>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;@[toc]&lt;/p&gt;
+&lt;h1 id=&quot;Docker实战训练营&quot;&gt;&lt;a href=&quot;#Docker实战训练营&quot; class=&quot;headerlink&quot; title=&quot;Docker实战训练营&quot;&gt;&lt;/a&gt;Docker实战训练营&lt;/h1&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;n
+      
+    
+    </summary>
+    
+    
+      <category term="容器" scheme="https://huaxiapanda.github.io/categories/%E5%AE%B9%E5%99%A8/"/>
+    
+      <category term="docker" scheme="https://huaxiapanda.github.io/categories/%E5%AE%B9%E5%99%A8/docker/"/>
+    
+    
+      <category term="Docker" scheme="https://huaxiapanda.github.io/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Ubuntu Docker 安装</title>
     <link href="https://huaxiapanda.github.io/2019/09/24/Ubuntu%20Docker%20%E5%AE%89%E8%A3%85/"/>
     <id>https://huaxiapanda.github.io/2019/09/24/Ubuntu Docker 安装/</id>
     <published>2019-09-24T11:21:23.000Z</published>
-    <updated>2019-09-26T15:26:40.955Z</updated>
+    <updated>2019-09-26T15:28:32.413Z</updated>
     
     <content type="html"><![CDATA[<p>@[toc]</p><h1 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h1><p>Docker要求ubuntu系统的内核版本高于3.10，在进行浏览本页面时，请首先查看你的系统内核版本。如果不符合要求，请升级内核版本，或者更换其他安装方法。通过uname -a查看系统内核版本。</p><pre><code class="shell">huaxiapanda@huaxiapanda:~$ uname -a</code></pre><p><img src="//huaxiapanda.github.io/2019/09/24/Ubuntu Docker 安装/01.png" alt="图1"></p><h1 id="使用脚本安装Docker"><a href="#使用脚本安装Docker" class="headerlink" title="使用脚本安装Docker"></a>使用脚本安装Docker</h1><h2 id="获取最新版本的docker安装包"><a href="#获取最新版本的docker安装包" class="headerlink" title="获取最新版本的docker安装包"></a>获取最新版本的docker安装包</h2><pre><code class="shell">huaxiapanda@huaxiapanda:~$ wget -qO- https://get.docker.com/ | sh</code></pre><p><img src="//huaxiapanda.github.io/2019/09/24/Ubuntu Docker 安装/02.png" alt="图2"><br>安装完成后，会有一个提示：</p><pre><code class="shell">If you would like to use Docker as a non-root user, you should now consider    adding your user to the &quot;docker&quot; group with something like:    sudo usermod -aG docker runoob   Remember that you will have to log out and back in for this to take effect!  </code></pre><p>当要以非root用户可以直接运行docker时，需要执行 sudo usermod -aG docker huaxiapanda 命令，然后重新登陆，否则会报没有权限的错误。会出现Docker daemon socket权限不足：<br><img src="//huaxiapanda.github.io/2019/09/24/Ubuntu Docker 安装/04.png" alt="图3"></p><ul><li>方案1 ：使用sudo获取root权限</li><li>方案2： 添加docker用户组，将当前用户加入docker用户组<pre><code class="shell">huaxiapanda@huaxiapanda:~$ sudo groupadd docker #添加docker用户组groupadd：“docker”组已存在huaxiapanda@huaxiapanda:~$ sudo gpasswd -a $USER docker #将登陆用户加入到docker用户组中正在将用户“huaxiapanda”加入到“docker”组中huaxiapanda@huaxiapanda:~$ newgrp docker #更新用户组huaxiapanda@huaxiapanda:~$ docker ps #测试当前用户是否可以正常使用docker命令CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMEShuaxiapanda@huaxiapanda:~$</code></pre><img src="//huaxiapanda.github.io/2019/09/24/Ubuntu Docker 安装/03.png" alt="图4"><h2 id="启动docker后台服务"><a href="#启动docker后台服务" class="headerlink" title="启动docker后台服务"></a>启动docker后台服务</h2><pre><code class="shell"># 启动docker服务huaxiapanda@huaxiapanda:~$ sudo service docker start# 查看docker服务状态huaxiapanda@huaxiapanda:~$ sudo service docker status</code></pre><img src="//huaxiapanda.github.io/2019/09/24/Ubuntu Docker 安装/05.png" alt="图5"><h2 id="测试运行hello-world"><a href="#测试运行hello-world" class="headerlink" title="测试运行hello-world"></a>测试运行hello-world</h2><pre><code class="shell">huaxiapanda@huaxiapanda:~$ docker run hello-world</code></pre><img src="//huaxiapanda.github.io/2019/09/24/Ubuntu Docker 安装/06.png" alt="图6"><br>至此，你就已经把docker在ubuntu系统安装好了！</li></ul>]]></content>
     
