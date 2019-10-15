@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>elasticsearch入门 | 华夏熊猫</title>
+  <meta name="keywords" content=" elasticsearch ">
+  <meta name="description" content="elasticsearch入门 | 华夏熊猫">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="个人简介笔名: 华夏熊猫职业: Java架构师/大数据架构师兴趣: 喜欢研究新兴的技术，对于基础平台架构和大数据架构有一定的实战经验！平时喜欢宅在家里研究一些喜欢的东西，对于一些开源项目的源码有一定的研究，目前还没有开始造轮子。未来如果有机会，考虑造一些实用的轮子。 未来规划&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近会全力搞自己的博客站点！形成自己一系列的只是体系">
+<meta property="og:type" content="website">
+<meta property="og:title" content="about">
+<meta property="og:url" content="https://huaxiapanda.github.io/about/index.html">
+<meta property="og:site_name" content="华夏熊猫">
+<meta property="og:description" content="个人简介笔名: 华夏熊猫职业: Java架构师/大数据架构师兴趣: 喜欢研究新兴的技术，对于基础平台架构和大数据架构有一定的实战经验！平时喜欢宅在家里研究一些喜欢的东西，对于一些开源项目的源码有一定的研究，目前还没有开始造轮子。未来如果有机会，考虑造一些实用的轮子。 未来规划&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近会全力搞自己的博客站点！形成自己一系列的只是体系">
+<meta property="og:locale" content="zh_cn">
+<meta property="og:updated_time" content="2019-10-01T13:03:17.651Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="about">
+<meta name="twitter:description" content="个人简介笔名: 华夏熊猫职业: Java架构师/大数据架构师兴趣: 喜欢研究新兴的技术，对于基础平台架构和大数据架构有一定的实战经验！平时喜欢宅在家里研究一些喜欢的东西，对于一些开源项目的源码有一定的研究，目前还没有开始造轮子。未来如果有机会，考虑造一些实用的轮子。 未来规划&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近会全力搞自己的博客站点！形成自己一系列的只是体系">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/darcula.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1.0.1"></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>华夏熊猫</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/huaxiapanda" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="email" href="mailto:huaxiapanda@163.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=805056750&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="kugou" href="https://www.kugou.com/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-kugou"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(5)</small></div></li>
+    
+        
+            
+            <li><div data-rel="大数据"><i class="fold iconfont icon-right"></i>大数据<small>(2)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="es">es<small>(2)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+            <li><div data-rel="容器"><i class="fold iconfont icon-right"></i>容器<small>(2)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="docker">docker<small>(2)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工具"><i class="fold iconfont icon-right"></i>工具<small>(1)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="hexo">hexo<small>(1)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="5">
+<input type="hidden" id="yelog_site_word_count" value="6.1k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://huaxiapanda.github.io/">华夏熊猫</a></li>
+            
+            <li><a target="_blank" href="https://shimo.im">石墨文档</a></li>
+            
+            <li><a target="_blank" href="https://www.draw.io">Draw.io</a></li>
+            
+            <li><a target="_blank" href="https://dida365.com">滴答清单</a></li>
+            
+            <li><a target="_blank" href="https://www.teambition.com">Teambition</a></li>
+            
+            <li><a target="_blank" href="https://uzer.me">UZER.ME</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">elasticsearch</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Docker</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">hexo</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="大数据 es "
+           href="/2019/10/15/elasticsearch入门_01/"
+           data-tag="elasticsearch"
+           data-author="" >
+            <span class="post-title" title="elasticsearch入门_01">elasticsearch入门_01</span>
+            <span class="post-date" title="2019-10-15 21:55:49">2019/10/15</span>
+        </a>
+        
+        <a  class="大数据 es "
+           href="/2019/10/14/elasticsearch入门/"
+           data-tag="elasticsearch"
+           data-author="" >
+            <span class="post-title" title="elasticsearch入门">elasticsearch入门</span>
+            <span class="post-date" title="2019-10-14 17:48:15">2019/10/14</span>
+        </a>
+        
+        <a  class="容器 docker "
+           href="/2019/09/27/Docker实战训练营/"
+           data-tag="Docker"
+           data-author="" >
+            <span class="post-title" title="Docker实战训练营">Docker实战训练营</span>
+            <span class="post-date" title="2019-09-27 23:41:20">2019/09/27</span>
+        </a>
+        
+        <a  class="容器 docker "
+           href="/2019/09/24/Ubuntu Docker 安装/"
+           data-tag="Docker"
+           data-author="" >
+            <span class="post-title" title="Ubuntu Docker 安装">Ubuntu Docker 安装</span>
+            <span class="post-date" title="2019-09-24 19:21:23">2019/09/24</span>
+        </a>
+        
+        <a  class="工具 hexo "
+           href="/2019/09/21/Hexo+GitHub Pages搭建个人博客站点/"
+           data-tag="hexo"
+           data-author="" >
+            <span class="post-title" title="Hexo+GitHub Pages搭建个人博客站点">Hexo+GitHub Pages搭建个人博客站点</span>
+            <span class="post-date" title="2019-09-21 18:21:50">2019/09/21</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-elasticsearch入门" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">elasticsearch入门</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="大数据">大数据</a>/
+            
+                <a href="javascript:" data-rel="es">es</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color4">elasticsearch</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-10-15 21:56:20'>2019-10-14 17:48</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:3.3k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-elasticsearch核心概念"><span class="toc-text">1. elasticsearch核心概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-Near-Realtime-NRT"><span class="toc-text">1.1 Near Realtime(NRT)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-Cluster"><span class="toc-text">1.2 Cluster</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-Node"><span class="toc-text">1.3 Node</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-Document-amp-field"><span class="toc-text">1.4 Document&amp;field</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-Index"><span class="toc-text">1.5 Index</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-Type"><span class="toc-text">1.6 Type</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-7-shard"><span class="toc-text">1.7 shard</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-8-replica"><span class="toc-text">1.8 replica</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-9-share和replica图解"><span class="toc-text">1.9 share和replica图解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-10-elasticsearch核心概念-vs-数据库核心概念"><span class="toc-text">1.10 elasticsearch核心概念 vs 数据库核心概念</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-基础API"><span class="toc-text">2 基础API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-Elasticsearch之document数据格式"><span class="toc-text">2.1 Elasticsearch之document数据格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-基础API"><span class="toc-text">2.2 基础API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-快速查看集群的健康状态"><span class="toc-text">2.2.1 快速查看集群的健康状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2-快速查看集群中有哪些索引"><span class="toc-text">2.2.2 快速查看集群中有哪些索引</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-简单的索引操作"><span class="toc-text">2.3 简单的索引操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1-创建一个索引"><span class="toc-text">2.3.1 创建一个索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2-删除一个索引"><span class="toc-text">2.3.2 删除一个索引</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-ES之增删改查-CRUD-操作API"><span class="toc-text">2.4 ES之增删改查(CRUD)操作API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-1-新增商品"><span class="toc-text">2.4.1 新增商品</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-2-查询商品文档"><span class="toc-text">2.4.2 查询商品文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-3-修改记录-替换文档"><span class="toc-text">2.4.3 修改记录_替换文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-4-修改记录-更新文档"><span class="toc-text">2.4.4 修改记录_更新文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-5-删除文档"><span class="toc-text">2.4.5 删除文档</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Elasticsearch查询方式"><span class="toc-text">3 Elasticsearch查询方式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-query-string-search"><span class="toc-text">3.1 query string search</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-Query-DSL"><span class="toc-text">3.2 Query DSL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-1-查询所有的商品"><span class="toc-text">3.2.1 查询所有的商品</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-2-按照指定条件查询"><span class="toc-text">3.2.2 按照指定条件查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-3-分页查询"><span class="toc-text">3.2.3 分页查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-4-查询指定字段信息"><span class="toc-text">3.2.4 查询指定字段信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-5-高级查询"><span class="toc-text">3.2.5 高级查询</span></a></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><div class='inner-toc'><h2>目录</h2><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-elasticsearch核心概念"><span class="toc-text">1. elasticsearch核心概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-Near-Realtime-NRT"><span class="toc-text">1.1 Near Realtime(NRT)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-Cluster"><span class="toc-text">1.2 Cluster</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-Node"><span class="toc-text">1.3 Node</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-Document-amp-field"><span class="toc-text">1.4 Document&amp;field</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-Index"><span class="toc-text">1.5 Index</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-Type"><span class="toc-text">1.6 Type</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-7-shard"><span class="toc-text">1.7 shard</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-8-replica"><span class="toc-text">1.8 replica</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-9-share和replica图解"><span class="toc-text">1.9 share和replica图解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-10-elasticsearch核心概念-vs-数据库核心概念"><span class="toc-text">1.10 elasticsearch核心概念 vs 数据库核心概念</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-基础API"><span class="toc-text">2 基础API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-Elasticsearch之document数据格式"><span class="toc-text">2.1 Elasticsearch之document数据格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-基础API"><span class="toc-text">2.2 基础API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-快速查看集群的健康状态"><span class="toc-text">2.2.1 快速查看集群的健康状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2-快速查看集群中有哪些索引"><span class="toc-text">2.2.2 快速查看集群中有哪些索引</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-简单的索引操作"><span class="toc-text">2.3 简单的索引操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1-创建一个索引"><span class="toc-text">2.3.1 创建一个索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2-删除一个索引"><span class="toc-text">2.3.2 删除一个索引</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-ES之增删改查-CRUD-操作API"><span class="toc-text">2.4 ES之增删改查(CRUD)操作API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-1-新增商品"><span class="toc-text">2.4.1 新增商品</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-2-查询商品文档"><span class="toc-text">2.4.2 查询商品文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-3-修改记录-替换文档"><span class="toc-text">2.4.3 修改记录_替换文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-4-修改记录-更新文档"><span class="toc-text">2.4.4 修改记录_更新文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-5-删除文档"><span class="toc-text">2.4.5 删除文档</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Elasticsearch查询方式"><span class="toc-text">3 Elasticsearch查询方式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-query-string-search"><span class="toc-text">3.1 query string search</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-Query-DSL"><span class="toc-text">3.2 Query DSL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-1-查询所有的商品"><span class="toc-text">3.2.1 查询所有的商品</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-2-按照指定条件查询"><span class="toc-text">3.2.2 按照指定条件查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-3-分页查询"><span class="toc-text">3.2.3 分页查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-4-查询指定字段信息"><span class="toc-text">3.2.4 查询指定字段信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-5-高级查询"><span class="toc-text">3.2.5 高级查询</span></a></li></ol></li></ol></li></ol></div></p>
+<h1 id="1-elasticsearch核心概念"><a href="#1-elasticsearch核心概念" class="headerlink" title="1. elasticsearch核心概念"></a>1. elasticsearch核心概念</h1><p><a href="https://www.elastic.co/cn/downloads/past-releases" target="_blank" rel="noopener">elk下载地址</a></p>
+<h2 id="1-1-Near-Realtime-NRT"><a href="#1-1-Near-Realtime-NRT" class="headerlink" title="1.1 Near Realtime(NRT)"></a>1.1 Near Realtime(NRT)</h2><p>&emsp;&emsp;近实时，两个意思，从写入数据到数据可以被搜索到有一个小延迟（大概1秒）；基于es执行搜索和分析可以达到秒级.</p>
+<h2 id="1-2-Cluster"><a href="#1-2-Cluster" class="headerlink" title="1.2 Cluster"></a>1.2 Cluster</h2><p>&emsp;&emsp;集群，包含多个节点，每个节点属于哪个集群是通过一个配置（集群名称，默认是elasticsearch）来决定的，对于中小型应用来说，刚开始一个集群就一个节点很正常.<strong>可以在elasticsearch.yml中修改这个名称</strong></p>
+<h2 id="1-3-Node"><a href="#1-3-Node" class="headerlink" title="1.3 Node"></a>1.3 Node</h2><p>&emsp;&emsp;节点，集群中的一个节点，节点也有一个名称（默认是随机分配的），节点名称很重要（在执行运维管理操作的时候），默认节点会去加入一个名称为”elasticsearch”的集群，如果直接启动一堆节点，那么它们会自动组成一个elasticsearch集群，当然一个节点也可以组成一个elasticsearch集群.</p>
+<h2 id="1-4-Document-amp-field"><a href="#1-4-Document-amp-field" class="headerlink" title="1.4 Document&amp;field"></a>1.4 Document&amp;field</h2><p>&emsp;&emsp;文档，es中的最小数据单元，一个document可以是一条客户数据，一条商品分类数据，一条订单数据，通常用JSON数据结构表示，每个index下的type中，都可以去存储多个document。一个document里面有多个field，每个field就是一个数据字段。<br><br>例如一个product document</p>
+<pre><code class="javascript">// product document
+{
+    &quot;product_id&quot;:&quot;3&quot;,
+    &quot;product_name&quot;:&quot;华为荣耀P30 Pro&quot;,
+    &quot;product_desc&quot;:&quot;50倍放大，清晰&quot;,
+    &quot;category_id&quot;:&quot;2&quot;,
+    &quot;category_name&quot;:&quot;手机数码&quot;
+}</code></pre>
+<p><strong>注：index其实就是一个数据库，可以存储很多type，type其实就是一张表,可以存储很多Document，Document其实就是一行数据,一行数据有很多Filed，Filed其实就是一行中的一个字段。</strong></p>
+<h2 id="1-5-Index"><a href="#1-5-Index" class="headerlink" title="1.5 Index"></a>1.5 Index</h2><p>&emsp;&emsp;索引，包含一堆有相似结构的文档数据，比如可以有一个客户索引，商品分类索引，订单索引，索引有一个名称。一个index包含很多document，一个index就代表了一类类似的或者相同的document。比如说建立一个product index，商品索引，里面可能就存放了所有的商品数据，所有的商品document。</p>
+<h2 id="1-6-Type"><a href="#1-6-Type" class="headerlink" title="1.6 Type"></a>1.6 Type</h2><p>&emsp;&emsp; 类型，每个索引里都可以有一个或多个type，type是index中的一个逻辑数据分类，一个type下的document，都有相同的field，比如博客系统，有一个索引，可以定义用户数据type，博客数据type，评论数据type。<br><br>&emsp;&emsp;商品index，里面存放了所有的商品数据，商品document,但是商品分很多种类，每个种类的document的field可能不太一样，比如说电器商品，可能还包含一些诸如售后时间范围这样的特殊field；生鲜商品，还包含一些诸如生鲜保质期之类的特殊field <br></p>
+<p>example:<br><br>&emsp;&emsp;type,日化商品type，电器商品type，生鲜商品type<br><br>&emsp;&emsp;日化商品type：product_id，product_name，product_desc，category_id，category_name<br><br>&emsp;&emsp;电器商品type：product_id，product_name，product_desc，category_id，category_name，service_period<br><br>&emsp;&emsp;生鲜商品type：product_id，product_name，product_desc，category_id，category_name，eat_period<br></p>
+<p>&emsp;&emsp;每一个type里面，都会包含一堆document</p>
+<pre><code class="javascript">{
+  &quot;product_id&quot;: &quot;2&quot;,
+  &quot;product_name&quot;: &quot;长虹电视机&quot;,
+  &quot;product_desc&quot;: &quot;4k高清&quot;,
+  &quot;category_id&quot;: &quot;3&quot;,
+  &quot;category_name&quot;: &quot;电器&quot;,
+  &quot;service_period&quot;: &quot;1年&quot;
+}
+{
+  &quot;product_id&quot;: &quot;3&quot;,
+  &quot;product_name&quot;: &quot;基围虾&quot;,
+  &quot;product_desc&quot;: &quot;纯天然，冰岛产&quot;,
+  &quot;category_id&quot;: &quot;4&quot;,
+  &quot;category_name&quot;: &quot;生鲜&quot;,
+  &quot;eat_period&quot;: &quot;7天&quot;
+}</code></pre>
+<h2 id="1-7-shard"><a href="#1-7-shard" class="headerlink" title="1.7 shard"></a>1.7 shard</h2><p>&emsp;&emsp;单台机器无法存储大量数据，es可以将一个索引中的数据切分为多个shard，分布在多台服务器上存储。有了shard就可以横向扩展，存储更多数据，让搜索和分析等操作分布到多台服务器上去执行，提升吞吐量和性能。每个shard都是一个lucene index。</p>
+<h2 id="1-8-replica"><a href="#1-8-replica" class="headerlink" title="1.8 replica"></a>1.8 replica</h2><p>&emsp;&emsp;任何一个服务器随时可能故障或宕机，此时shard可能就会丢失，因此可以为每个shard创建多个replica副本。replica可以在shard故障时提供备用服务，保证数据不丢失，多个replica还可以提升搜索操作的吞吐量和性能。primary shard（建立索引时一次设置，不能修改，默认5个），replica shard（随时修改数量，默认1个），默认每个索引10个shard，5个primary shard，5个replica shard，最小的高可用配置，是2台服务器。</p>
+<h2 id="1-9-share和replica图解"><a href="#1-9-share和replica图解" class="headerlink" title="1.9 share和replica图解"></a>1.9 share和replica图解</h2><p><img src="//huaxiapanda.github.io/2019/10/14/elasticsearch入门/1.png" alt="shared和replica图解"></p>
+<h2 id="1-10-elasticsearch核心概念-vs-数据库核心概念"><a href="#1-10-elasticsearch核心概念-vs-数据库核心概念" class="headerlink" title="1.10 elasticsearch核心概念 vs 数据库核心概念"></a>1.10 elasticsearch核心概念 vs 数据库核心概念</h2><table>
+<thead>
+<tr>
+<th align="center">Elasticsearch</th>
+<th align="center">数据库</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Document</td>
+<td align="center">行/row</td>
+</tr>
+<tr>
+<td align="center">Type</td>
+<td align="center">表/table</td>
+</tr>
+<tr>
+<td align="center">Index</td>
+<td align="center">库/database</td>
+</tr>
+</tbody></table>
+<h1 id="2-基础API"><a href="#2-基础API" class="headerlink" title="2 基础API"></a>2 基础API</h1><h2 id="2-1-Elasticsearch之document数据格式"><a href="#2-1-Elasticsearch之document数据格式" class="headerlink" title="2.1 Elasticsearch之document数据格式"></a>2.1 Elasticsearch之document数据格式</h2><p>&emsp;&emsp;elasticsearch是面向文档的搜索分析引擎<br></p>
+<ul>
+<li>应用系统的数据结构都是面向对象的，复杂的</li>
+<li>对象数据存储到数据库中，只能拆解开来，变为扁平的多张表，每次查询的时候还得还原回对象格式，相当麻烦</li>
+<li>ES是面向文档的，文档中存储的数据结构，与面向对象的数据结构是一样的，基于这种文档数据结构，es可以提供复杂的索引，全文检索，分析聚合等功能.</li>
+<li>es的document用json数据格式来表达<br></li>
+</ul>
+<p><strong>传统的关系型数据库的数据格式:</strong></p>
+<pre><code class="Java">public class Employee {
+  private String email;
+  private String firstName;
+  private String lastName;
+  private EmployeeInfo info;
+  private Date joinDate;
+}
+
+private class EmployeeInfo {
+  private String bio; // 性格
+  private Integer age;
+  private String[] interests; // 兴趣爱好
+}
+
+EmployeeInfo info = new EmployeeInfo();
+info.setBio(&quot;curious and modest&quot;);
+info.setAge(30);
+info.setInterests(new String[]{&quot;bike&quot;, &quot;climb&quot;});
+
+Employee employee = new Employee();
+employee.setEmail(&quot;zhangsan@sina.com&quot;);
+employee.setFirstName(&quot;san&quot;);
+employee.setLastName(&quot;zhang&quot;);
+employee.setInfo(info);
+employee.setJoinDate(new Date());
+// employee对象：里面包含了Employee类自己的属性，还有一个EmployeeInfo对象
+// 两张表：employee表，employee_info表，将employee对象的数据重新拆开来，变成Employee数据和EmployeeInfo数据
+// employee表：email，first_name，last_name，join_date，4个字段
+// employee_info表：bio，age，interests，3个字段；此外还有一个外键字段，比如employee_id，关联着employee表</code></pre>
+<p><strong>elasticsearch数据格式为:</strong></p>
+<pre><code class="javascript">{
+    &quot;email&quot;:      &quot;zhangsan@sina.com&quot;,
+    &quot;first_name&quot;: &quot;san&quot;,
+    &quot;last_name&quot;: &quot;zhang&quot;,
+    &quot;info&quot;: {
+        &quot;bio&quot;:         &quot;curious and modest&quot;,
+        &quot;age&quot;:         30,
+        &quot;interests&quot;: [ &quot;bike&quot;, &quot;climb&quot; ]
+    },
+    &quot;join_date&quot;: &quot;2017/01/01&quot;
+}</code></pre>
+<h2 id="2-2-基础API"><a href="#2-2-基础API" class="headerlink" title="2.2 基础API"></a>2.2 基础API</h2><h3 id="2-2-1-快速查看集群的健康状态"><a href="#2-2-1-快速查看集群的健康状态" class="headerlink" title="2.2.1 快速查看集群的健康状态"></a>2.2.1 快速查看集群的健康状态</h3><p>es提供了一套api,叫做cat api,可以查看es中各种各样的数据:</p>
+<pre><code class="bash">GET /_cat/health?v</code></pre>
+<p><img src="//huaxiapanda.github.io/2019/10/14/elasticsearch入门/2.png" alt="健康状态结果"></p>
+<ul>
+<li><p><strong>如何快速了解集群的健康状态?green、yellow、red?</strong></p>
+<ul>
+<li>green:每个索引的primary shard和replica shard都是active状态的。</li>
+<li>yellow:每个索引的primary shard都是active状态的，但是部分replica shard不是active状态，处于不可用的状态。</li>
+<li>red:不是所有索引的primary shard都是active状态的，部分索引有数据丢失了。</li>
+</ul>
+</li>
+<li><p><strong>为什么现在会处于一个yellow状态？<br></strong><br>&emsp;&emsp;我们现在就一个笔记本电脑，就启动了一个es进程，相当于就只有一个node。现在es中有一个index，就是kibana自己内置建立的index。由于默认的配置是给每个index分配5个primary shard和5个replica shard，而且primary shard和replica shard不能在同一台机器上（为了容错）。现在kibana自己建立的index是1个primary shard和1个replica shard。当前就一个node，所以只有1个primary shard被分配了和启动了，但是一个replica shard没有第二台机器去启动。</p>
+<h3 id="2-2-2-快速查看集群中有哪些索引"><a href="#2-2-2-快速查看集群中有哪些索引" class="headerlink" title="2.2.2 快速查看集群中有哪些索引"></a>2.2.2 快速查看集群中有哪些索引</h3><pre><code class="bash">GET /_cat/indices?v</code></pre>
+<p><img src="//huaxiapanda.github.io/2019/10/14/elasticsearch入门/3.png" alt="查看集群中的索引"></p>
+<h2 id="2-3-简单的索引操作"><a href="#2-3-简单的索引操作" class="headerlink" title="2.3 简单的索引操作"></a>2.3 简单的索引操作</h2><h3 id="2-3-1-创建一个索引"><a href="#2-3-1-创建一个索引" class="headerlink" title="2.3.1 创建一个索引"></a>2.3.1 创建一个索引</h3><pre><code class="bash"># 创建一个新的索引
+PUT /test_index?pretty</code></pre>
+<p><img src="//huaxiapanda.github.io/2019/10/14/elasticsearch入门/4.png" alt="创建索引"></p>
+<h3 id="2-3-2-删除一个索引"><a href="#2-3-2-删除一个索引" class="headerlink" title="2.3.2 删除一个索引"></a>2.3.2 删除一个索引</h3><pre><code class="bash"># 删除一个索引
+DELETE /test_index?pretty</code></pre>
+<p><img src="//huaxiapanda.github.io/2019/10/14/elasticsearch入门/5.png" alt="删除索引"></p>
+<h2 id="2-4-ES之增删改查-CRUD-操作API"><a href="#2-4-ES之增删改查-CRUD-操作API" class="headerlink" title="2.4 ES之增删改查(CRUD)操作API"></a>2.4 ES之增删改查(CRUD)操作API</h2><p>&emsp;&emsp;es的增删改查操作使用商品的增删改查为例子</p>
+<h3 id="2-4-1-新增商品"><a href="#2-4-1-新增商品" class="headerlink" title="2.4.1 新增商品"></a>2.4.1 新增商品</h3><p>语法:<br></p>
+<pre><code class="bash"># 向es中插入一行记录
+PUT /index/type/id
+{
+&quot;json数据&quot;
+}</code></pre>
+<p>案例:<br></p>
+<pre><code class="bash">PUT /ecommerce/product/1
+{
+&quot;name&quot;:&quot;gaolujie yagao&quot;,
+&quot;desc&quot;:&quot;gaoxiao meibai&quot;,
+&quot;price&quot;:25,
+&quot;producer&quot;:&quot;gaolujie producer&quot;,
+&quot;tags&quot;:[&quot;meibai&quot;,&quot;fangzhu&quot;]
+}
+PUT /ecommerce/product/2
+{
+  &quot;name&quot;:&quot;jiajieshi yagao&quot;,
+  &quot;desc&quot;:&quot;youxiao fangzhu&quot;,
+  &quot;price&quot;:25,
+  &quot;producer&quot;:&quot;jiajieshi producer&quot;,
+   &quot;tags&quot;:[&quot;fangzhu&quot;]
+}
+PUT /ecommerce/product/3
+{
+  &quot;name&quot;:&quot;zhonghua yagao&quot;,
+  &quot;desc&quot;:&quot;caoben zhiwu&quot;,
+  &quot;price&quot;:40,
+  &quot;producer&quot;:&quot;zhonghua producer&quot;,
+   &quot;tags&quot;:[&quot;qingxin&quot;]
+}</code></pre>
+<p><img src="//huaxiapanda.github.io/2019/10/14/elasticsearch入门/6.png" alt="插入一行记录"><br></p>
+</li>
+<li><p>index 插入es的库名称</p>
+</li>
+<li><p>type: 插入es的表名称</p>
+</li>
+<li><p>id: 插入es的行标识</p>
+</li>
+<li><p>version: 插入es的数据版本</p>
+</li>
+<li><p>result: 插入es的结果,created 代表新增</p>
+</li>
+<li><p>shards: 插入es的一些shards信息</p>
+<ul>
+<li>total: 总共两个shard</li>
+<li>successful: 成功1个,因为只启动了一个节点,目前只有一个primary shard,没有replica shard</li>
+<li>failed: 失败0个</li>
+</ul>
+</li>
+<li><p>created: 新增结果,true代表成功,false代表失败<br></p>
+</li>
+</ul>
+<h3 id="2-4-2-查询商品文档"><a href="#2-4-2-查询商品文档" class="headerlink" title="2.4.2 查询商品文档"></a>2.4.2 查询商品文档</h3><p>语法:<br></p>
+<pre><code class="bash">//查询商品文档数据
+GET /index/type/id</code></pre>
+<p>案例:<br></p>
+<pre><code class="bash">GET /ecommerce/product/1</code></pre>
+<p><img src="//huaxiapanda.github.io/2019/10/14/elasticsearch入门/7.png" alt="查询语法结果"><br></p>
+<p>+index: 查询es的库名称<br>+type: 查询es的表名称<br>+id: 查询es的行标识<br>+version: 查询es的数据版本</p>
+<ul>
+<li>found: 是否查询到记录,true是查询到记录,false是没有查询到记录.</li>
+<li>source: 查询到的该条记录的内容<br></li>
+</ul>
+<h3 id="2-4-3-修改记录-替换文档"><a href="#2-4-3-修改记录-替换文档" class="headerlink" title="2.4.3 修改记录_替换文档"></a>2.4.3 修改记录_替换文档</h3><p>案例:<br></p>
+<pre><code class="bash">PUT /ecommerce/product/1
+{
+    &quot;name&quot;:&quot;jiaqiangban gaolujie yaoga&quot;
+}</code></pre>
+<p><img src="//huaxiapanda.github.io/2019/10/14/elasticsearch入门/8.png" alt="替换文档"><br></p>
+<ul>
+<li>index: 查询es的库名称</li>
+<li>type: 查询es的表名称</li>
+<li>id: 查询es的行标识</li>
+<li>version: 查询es的数据版本</li>
+<li>result: 结果是更新<br></li>
+</ul>
+<p><strong>替换方式有一个不好，即使必须带上所有的field,才能去进行信息的修改</strong></p>
+<pre><code class="bash">GET /ecommerce/product/1</code></pre>
+<p><img src="//huaxiapanda.github.io/2019/10/14/elasticsearch入门/9.png" alt="查询结果"><br>由上图可以看出,我们只修改了一个name字段,结果其他的字段都被覆盖掉了.但是这不是我们想要的结果.</p>
+<h3 id="2-4-4-修改记录-更新文档"><a href="#2-4-4-修改记录-更新文档" class="headerlink" title="2.4.4 修改记录_更新文档"></a>2.4.4 修改记录_更新文档</h3><p>案例:<br></p>
+<pre><code class="bash">PUT /ecommerce/product/1
+{
+    &quot;name&quot;:&quot;gaolujie yagao&quot;,
+    &quot;desc&quot;:&quot;gaoxiao meibai&quot;,
+    &quot;price&quot;:30,
+    &quot;producer&quot;:&quot;gaolujie producer&quot;,
+    &quot;tags&quot;:[&quot;meibai&quot;,&quot;fangzhu&quot;]
+}
+# 使用post进行文档的指定字段的更新
+POST /ecommerce/product/1/_update
+{
+  &quot;doc&quot;:{
+    &quot;name&quot;:&quot;jiaqiangban gaolujie yagao&quot;
+  }
+}</code></pre>
+<p><img src="//huaxiapanda.github.io/2019/10/14/elasticsearch入门/10.png" alt="指定字段更新"></p>
+<h3 id="2-4-5-删除文档"><a href="#2-4-5-删除文档" class="headerlink" title="2.4.5 删除文档"></a>2.4.5 删除文档</h3><pre><code class="bash"># 删除文档
+DELETE /ecommerce/product/1</code></pre>
+<p><img src="//huaxiapanda.github.io/2019/10/14/elasticsearch入门/11.png" alt="删除结果"><br>再次执行删除操作出现如下结果:<br><img src="//huaxiapanda.github.io/2019/10/14/elasticsearch入门/12.png" alt="删除结果"><br>执行查询操作:<br><img src="//huaxiapanda.github.io/2019/10/14/elasticsearch入门/13.png" alt="查询结果"></p>
+<h1 id="3-Elasticsearch查询方式"><a href="#3-Elasticsearch查询方式" class="headerlink" title="3 Elasticsearch查询方式"></a>3 Elasticsearch查询方式</h1><h2 id="3-1-query-string-search"><a href="#3-1-query-string-search" class="headerlink" title="3.1 query string search"></a>3.1 query string search</h2><p>使用查询字符串进行搜索所有的商品信息</p>
+<pre><code class="bash">GET /ecommerce/product/_search</code></pre>
+<p>查询结果如下所示:</p>
+<pre><code class="javascript">{
+  &quot;took&quot;: 29,
+  &quot;timed_out&quot;: false,
+  &quot;_shards&quot;: {
+    &quot;total&quot;: 5,
+    &quot;successful&quot;: 5,
+    &quot;failed&quot;: 0
+  },
+  &quot;hits&quot;: {
+    &quot;total&quot;: 3,
+    &quot;max_score&quot;: 1,
+    &quot;hits&quot;: [
+      {
+        &quot;_index&quot;: &quot;ecommerce&quot;,
+        &quot;_type&quot;: &quot;product&quot;,
+        &quot;_id&quot;: &quot;2&quot;,
+        &quot;_score&quot;: 1,
+        &quot;_source&quot;: {
+          &quot;name&quot;: &quot;jiajieshi yagao&quot;,
+          &quot;desc&quot;: &quot;youxiao fangzhu&quot;,
+          &quot;price&quot;: 25,
+          &quot;producer&quot;: &quot;jiajieshi producer&quot;,
+          &quot;tags&quot;: [
+            &quot;fangzhu&quot;
+          ]
+        }
+      },
+      {
+        &quot;_index&quot;: &quot;ecommerce&quot;,
+        &quot;_type&quot;: &quot;product&quot;,
+        &quot;_id&quot;: &quot;1&quot;,
+        &quot;_score&quot;: 1,
+        &quot;_source&quot;: {
+          &quot;name&quot;: &quot;gaolujie yagao&quot;,
+          &quot;desc&quot;: &quot;gaoxiao meibai&quot;,
+          &quot;price&quot;: 30,
+          &quot;producer&quot;: &quot;gaolujie producer&quot;,
+          &quot;tags&quot;: [
+            &quot;meibai&quot;,
+            &quot;fangzhu&quot;
+          ]
+        }
+      },
+      {
+        &quot;_index&quot;: &quot;ecommerce&quot;,
+        &quot;_type&quot;: &quot;product&quot;,
+        &quot;_id&quot;: &quot;3&quot;,
+        &quot;_score&quot;: 1,
+        &quot;_source&quot;: {
+          &quot;name&quot;: &quot;zhonghua yagao&quot;,
+          &quot;desc&quot;: &quot;caoben zhiwu&quot;,
+          &quot;price&quot;: 40,
+          &quot;producer&quot;: &quot;zhonghua producer&quot;,
+          &quot;tags&quot;: [
+            &quot;qingxin&quot;
+          ]
+        }
+      }
+    ]
+  }
+}</code></pre>
+<ul>
+<li>took: 查询花费的时间(ms)</li>
+<li>timed_out: 是否超时 false表示没有,true表示超时</li>
+<li>shards: 查询的shard信息</li>
+<li>hits: 查询命中信息<ul>
+<li>total: 总共几条记录</li>
+<li>max_score: 匹配分数</li>
+<li>hits: 命中的所有记录<ul>
+<li>index: 库</li>
+<li>type: 表</li>
+<li>id: 行</li>
+<li>score: 匹配分数</li>
+<li>source: 信息<br><br></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-2-Query-DSL"><a href="#3-2-Query-DSL" class="headerlink" title="3.2 Query DSL"></a>3.2 Query DSL</h2><p><strong>DSL:Domain Specified Language，特定领域的语言</strong><br><br>http request body：请求体，可以用json的格式来构建查询语法，比较方便，可以构建各种复杂的语法，比query string search肯定强大多了.</p>
+<h3 id="3-2-1-查询所有的商品"><a href="#3-2-1-查询所有的商品" class="headerlink" title="3.2.1 查询所有的商品"></a>3.2.1 查询所有的商品</h3><pre><code class="bash">GET /ecommerce/product/_search
+{
+  &quot;query&quot;: {&quot;match_all&quot;: {}}
+}</code></pre>
+<h3 id="3-2-2-按照指定条件查询"><a href="#3-2-2-按照指定条件查询" class="headerlink" title="3.2.2 按照指定条件查询"></a>3.2.2 按照指定条件查询</h3><p>案例:查询商品名称中包含yagao的商品,并且按照商品价格降序排序</p>
+<pre><code class="bash">GET /ecommerce/product/_search
+{
+  &quot;query&quot;: {
+    &quot;match&quot;: {
+      &quot;name&quot;: &quot;yagao&quot;
+    }
+  },
+  &quot;sort&quot;: [
+    {
+      &quot;price&quot;: {
+        &quot;order&quot;: &quot;desc&quot;
+      }
+    }
+  ]
+}</code></pre>
+<h3 id="3-2-3-分页查询"><a href="#3-2-3-分页查询" class="headerlink" title="3.2.3 分页查询"></a>3.2.3 分页查询</h3><pre><code class="bash">GET /ecommerce/product/_search
+{
+  &quot;query&quot;: {&quot;match_all&quot;: {}},
+  &quot;from&quot;: 0,
+  &quot;size&quot;: 2
+}</code></pre>
+<h3 id="3-2-4-查询指定字段信息"><a href="#3-2-4-查询指定字段信息" class="headerlink" title="3.2.4 查询指定字段信息"></a>3.2.4 查询指定字段信息</h3><pre><code class="bash">GET /ecommerce/product/_search
+{
+  &quot;query&quot;: {&quot;match_all&quot;: {}},
+  &quot;_source&quot;: [&quot;name&quot;,&quot;price&quot;]
+}</code></pre>
+<h3 id="3-2-5-高级查询"><a href="#3-2-5-高级查询" class="headerlink" title="3.2.5 高级查询"></a>3.2.5 高级查询</h3><ul>
+<li>query filter<br><br>案例:搜索商品名称包含yagao,而且售价大于25的商品<pre><code class="bash">GET /ecommerce/product/_search
+{
+&quot;query&quot;: {
+  &quot;bool&quot;: {
+    &quot;must&quot;: {
+      &quot;match&quot;:{
+        &quot;name&quot;:&quot;yagao&quot;
+      }
+    },
+    &quot;filter&quot;: {
+      &quot;range&quot;: {
+        &quot;price&quot;: {
+          &quot;gt&quot;: 25
+        }
+      }
+    }
+  }
+}
+}</code></pre>
+</li>
+<li>full-text search<br><br>全文检索<pre><code class="bash">GET /ecommerce/product/_search
+{
+&quot;query&quot;: {&quot;match&quot;: {
+  &quot;producer&quot;: &quot;yagao producer&quot;
+}}
+}</code></pre>
+</li>
+<li>phrase search<br><br>短语搜索<pre><code class="bash">GET /ecommerce/product/_search
+{
+&quot;query&quot;: {&quot;match_phrase&quot;: {
+  &quot;producer&quot;: &quot;yagao producer&quot;
+}}
+}</code></pre>
+<br>
+
+</li>
+</ul>
+<p><strong>总结:跟全文检索相对应，相反，全文检索会将输入的搜索串拆解开来，去倒排索引里面去一一匹配，只要能匹配上任意一个拆解后的单词，就可以作为结果返回<br>phrase search，要求输入的搜索串，必须在指定的字段文本中，完全包含一模一样的，才可以算匹配，才能作为结果返回</strong></p>
+<ul>
+<li>highlight search<br><br>高亮搜索结果<pre><code class="bash">GET /ecommerce/product/_search
+{
+&quot;query&quot;: {&quot;match&quot;: {
+  &quot;producer&quot;: &quot;producer&quot;
+}},
+&quot;highlight&quot;: {&quot;fields&quot;: {&quot;producer&quot;:{}}}
+}</code></pre>
+</li>
+</ul>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至huaxiapanda@163.com.文章所有权归华夏熊猫(huaxiapanda)所有 </span>
+    </div>
+</article>
+
+
+<p>
+    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>elasticsearch入门</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">3.6k</span></p>
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="华夏熊猫">华夏熊猫</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-10-14, 17:48:15</p>
+    <p><span class="copy-title">最后更新:</span>2019-10-15, 21:56:20</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/10/14/elasticsearch入门/" title="elasticsearch入门">https://huaxiapanda.github.io/2019/10/14/elasticsearch入门/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: '7d9759765ac1178f679d',
+            clientSecret: '5925f0feeb551b1d30264339fac3149599084b6f',
+            repo: 'huaxiapanda.github.io',
+            owner: 'huaxiapanda',
+            admin: ['huaxiapanda'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
+
+
+
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2019 huaxiapanda</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#elasticsearch','#Docker','#hexo',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
